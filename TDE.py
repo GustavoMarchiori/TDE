@@ -1,16 +1,17 @@
+#Importando a biblioteca pandas para a manipulação e análise de dados.
 import pandas as pd
-import glob
 
-path = 'C:/Users/valte/OneDrive/Documentos/dreaming/Python/arquivos'
-doze_arquivos = glob.glob(path+'/*.csv')
+#Atribuindo os valores da coluna 'Petróleo (bbl/dia)' para um objeto DataFrame.
+dataframe = pd.read_csv('C:/Users/valte/OneDrive/Documentos/MeusProjetos/TDE/Produção_Combustivel/2020/2020_producao_terra.csv', usecols=['Petróleo (bbl/dia)'], delimiter=';', decimal=',')
 
-li = []
-for filename in doze_arquivos:
-    df = pd.read_csv(filename, usecols=['Petróleo (bbl/dia)'], delimiter=';', index_col=None, header=0, decimal=',')
-    li.append(df)
-concatenated_df = pd.concat(li, axis=0, ignore_index=True)
+#Removendo todos os valores NaN (Not a Number) do nosso objeto DataFrame, para podermos executar futuras instruções necessárias.
+dataframe = dataframe.dropna()
 
-concatenated_df['Petróleo (bbl/dia)'] = concatenated_df['Petróleo (bbl/dia)'].apply(lambda x: x.replace(".", "").replace(",", "."))
-concatenated_df['Petróleo (bbl/dia)'] = concatenated_df['Petróleo (bbl/dia)'].astype(float)
+#Formatando nosso objeto DataFrame para remover dos valores todos os pontos e logo após transformar todas as vírgulas em pontos.
+dataframe['Petróleo (bbl/dia)'] = dataframe['Petróleo (bbl/dia)'].apply(lambda x: x.replace(".", "").replace(",", "."))
 
-print(sum(concatenated_df['Petróleo (bbl/dia)']))
+#Transformando o tipo dos nossos valores dentro do objeto DataFrame (Series) para valores de ponto flutuante. 
+dataframe['Petróleo (bbl/dia)'] = dataframe['Petróleo (bbl/dia)'].astype(float)
+
+#Imprime a soma de toda a coluna presente no DataFrame com 2 valores de casa decimal.
+print(f'Soma dos valores presentes na coluna Petróleo (bbl/dia): {sum(dataframe["Petróleo (bbl/dia)"]):.2f}')
