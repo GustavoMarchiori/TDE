@@ -6,7 +6,7 @@ import os
 
 locale.setlocale(locale.LC_NUMERIC, 'pt_BR.utf8')
 
-caminho_pasta = "C:/Users/valte/OneDrive/Documentos/MeusProjetos/TDE/Produção_Combustivel"
+caminho_pasta = "C:/Users/Gabriel/Documents/GitHub/TDE/Produção_Combustivel"
 
 lista_producao_mar = glob.glob(caminho_pasta + '/producao_mar/*.csv')
 lista_producao_terra = glob.glob(caminho_pasta + '/producao_terra/*.csv')
@@ -55,12 +55,16 @@ print(producao_terra_geral, producao_mar_geral, producao_todos_os_anos)
 
 import matplotlib.pyplot as plt
 
-x = ['A', 'B', 'C']
-y = [10, 20, 30]
-plt.bar(x, y)
+x = []
+y = []
 
-plt.title('Pateta Diabo 2: O retorno')
-plt.xlabel('Pateta')
-plt.ylabel('Diabo')
+for ano in bases_de_dados['mar'].keys():
+    x.append(ano)
+    y.append(producao_mar_anos[ano] + producao_terra_anos[ano])
+plt.plot(x, y)
+
+plt.title('Producao de Petroleo (bbl/ano)')
+plt.xlabel('Ano')
+plt.ylabel('Producao (bbl)')
 
 plt.show()
