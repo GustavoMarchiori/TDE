@@ -6,10 +6,10 @@ import os
 
 locale.setlocale(locale.LC_NUMERIC, 'pt_BR.utf8')
 
-caminho_pasta = "C:/Users/Gabriel/Documents/GitHub/TDE/Produção_Combustivel"
+caminho_pasta = "./Produção_Combustivel"
 
-lista_producao_mar = glob.glob(caminho_pasta + '/producao_mar/*.csv')
-lista_producao_terra = glob.glob(caminho_pasta + '/producao_terra/*.csv')
+lista_producao_mar = glob.glob(os.path.join(caminho_pasta,'producao_mar', '*.csv'))
+lista_producao_terra = glob.glob(os.path.join(caminho_pasta,'producao_terra', '*.csv'))
 
 bases_de_dados = {'terra': {}, 'mar': {}}
 
@@ -59,8 +59,9 @@ x = []
 y = []
 
 for ano in bases_de_dados['mar'].keys():
-    x.append(ano)
+    x.append(int(ano))
     y.append(producao_mar_anos[ano] + producao_terra_anos[ano])
+
 plt.plot(x, y)
 
 plt.title('Producao de Petroleo (bbl/ano)')
