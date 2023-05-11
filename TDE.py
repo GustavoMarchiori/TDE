@@ -6,12 +6,52 @@ import os
 
 locale.setlocale(locale.LC_NUMERIC, 'pt_BR.utf8')
 
-caminho_pasta = "./Produção_Combustivel"
+#caminho_pasta = "./Produção_Combustivel"
+caminho_pasta2 = "C:/Users/Gabriel/Documents/GitHub/TDE/Preços_Combustivel/Mensal_Brasil/preco_gasolina_2006_2022.csv" #botar caminho automatico
 
+precos_gasolina = {'2006': None, '2007': None, '2008': None, '2009': None, '2010': None, '2011': None, '2012': None, '2013': None, 
+                   '2014': None,'2015': None, '2016': None, '2017': None, '2018': None,'2019': None,'2020': None,'2021': None, '2022': None }
+
+
+
+df = pd.read_csv(caminho_pasta2, header = 0, usecols = ['MÊS', 'PRECO MÉDIO REVENDA', 'PRECO MÉDIO DISTRIBUIÇÃO'], delimiter = ',')
+df.dropna()
+print(df)
+
+sum = 0
+cont = 0
+ano = 2006
+
+for index, row in df.iterrows():
+    print(row['PRECO MÉDIO REVENDA'])
+'''
+for index, row in df.iterrows():
+    sum += row['PRECO MÉDIO REVENDA']
+    cont+=1
+    if cont==12:
+        cont = 0
+        precos_gasolina[str(ano)]=round(sum/12, 3)
+        ano+=1
+
+
+print(precos_gasolina)
+'''
+
+
+    
+
+
+
+
+
+
+
+'''
 lista_producao_mar = glob.glob(os.path.join(caminho_pasta,'producao_mar', '*.csv'))
 lista_producao_terra = glob.glob(os.path.join(caminho_pasta,'producao_terra', '*.csv'))
 
 bases_de_dados = {'terra': {}, 'mar': {}}
+
 
 for arquivo in lista_producao_terra:
     ano = os.path.splitext(os.path.basename(arquivo))[0].split('_')[0]
@@ -68,4 +108,4 @@ plt.title('Producao de Petroleo (bbl/ano)')
 plt.xlabel('Ano')
 plt.ylabel('Producao (bbl)')
 
-plt.show()
+plt.show()'''
