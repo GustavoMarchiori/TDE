@@ -13,32 +13,36 @@ precos_gasolina = {'2006': None, '2007': None, '2008': None, '2009': None, '2010
                    '2014': None,'2015': None, '2016': None, '2017': None, '2018': None,'2019': None,'2020': None,'2021': None, '2022': None }
 
 
+df = pd.read_csv(caminho_pasta2, header = 0, delimiter = ',')
+df = df['PRECO MÉDIO REVENDA'].dropna().astype(float)
 
-df = pd.read_csv(caminho_pasta2, header = 0, usecols = ['MÊS', 'PRECO MÉDIO REVENDA', 'PRECO MÉDIO DISTRIBUIÇÃO'], delimiter = ',')
-df.dropna()
-print(df)
+df = df.to_frame()
 
 sum = 0
 cont = 0
 ano = 2006
 
 for index, row in df.iterrows():
-    print(row['PRECO MÉDIO REVENDA'])
-'''
-for index, row in df.iterrows():
-    sum += row['PRECO MÉDIO REVENDA']
+    sum += row['PRECO MÉDIO REVENDA'].astype(float)
     cont+=1
-    if cont==12:
-        cont = 0
-        precos_gasolina[str(ano)]=round(sum/12, 3)
-        ano+=1
+    if ano != 2020:
+        if cont==12:
+            cont = 0
+            precos_gasolina[str(ano)]=round(sum/12, 3)
+            ano+=1
+            sum = 0
+    else:
+        if cont==11:
+            cont = 0
+            precos_gasolina[str(ano)]=round(sum/12, 3)
+            ano+=1
+            sum = 0
+        
+
+
 
 
 print(precos_gasolina)
-'''
-
-
-    
 
 
 
