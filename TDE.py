@@ -90,6 +90,7 @@ x1 = list()
 y1 = list()
 y2 = list()
 
+
 # Construindo os dados para o primeiro gráfico (Produção de Petróleo)
 for ano in bases_de_dados['mar'].keys():
     x1.append(int(ano))
@@ -99,25 +100,76 @@ for ano in bases_de_dados['mar'].keys():
 for valor in precos_gasolina.values():
     y2.append(valor)
 
+
 # Criação da figura e dos eixos
-fig, (ax1, ax2) = plt.subplots(2)
+fig, (ax1, ax2) = plt.subplots(2, figsize=(8, 6))
 
 # Plotagem do primeiro gráfico
-ax1.plot(x1, y1, label='Gráfico 1')
-ax1.set_title('Producao de Petroleo (bbl/ano)')
+ax1.plot(x1, y1, color='blue', marker='o')
+ax1.set_title('Producao de Petróleo (bbl/ano) (Linha)')
 ax1.set_xlabel('Ano')
 ax1.set_ylabel('Producao (bbl)')
-ax1.legend()
+ax1.tick_params(axis='x', rotation=90)
 
 # Plotagem do segundo gráfico
-ax2.plot(x1, y2, label='Gráfico 2')
-ax2.set_title('Preço médio da Gasolina por ano (R$/l)')
+ax2.plot(x1, y2, color='orange', marker='o')
+ax2.set_title('Preço médio da Gasolina por ano (R$/L) (Linha)')
 ax2.set_xlabel('Ano')
 ax2.set_ylabel('Preço')
-ax2.legend()
+ax2.tick_params(axis='x', rotation=90)
 
-# Exibição dos gráficos
-plt.tight_layout()  # Ajusta o espaçamento entre os subplots
+# Ajustando o espaço entre os subplots
+plt.tight_layout()
+
+# Mostrando os dois primeiros graficos
 plt.show()
 
-#Fazer terceiro gráfico
+#Transformando o tamanho da lista em uma variavel para mostrar um ano para cada indice
+x = np.arange(len(x1))
+
+#Terceiro e quarto grafico
+
+fig, (ax1, ax2) = plt.subplots(2, figsize=(8, 6))
+# Plotagem do terceiro gráfico
+ax1.bar(x, y1, color='blue')
+ax1.set_title('Produção de Petróleo (bbl/ano) (Barra)')
+ax1.set_xlabel('Ano')
+ax1.set_ylabel('Produção (bbl)')
+ax1.set_xticks(x)
+ax1.set_xticklabels(x1, rotation=90)
+
+# Plotagem do quarto gráfico
+ax2.bar(x, y2, color='orange')
+ax2.set_title('Preço médio da Gasolina por ano (R$/L) (Barra)')
+ax2.set_xlabel('Ano')
+ax2.set_ylabel('Preço')
+ax2.set_xticks(x)
+ax2.set_xticklabels(x1, rotation=90)
+
+# Ajustando o espaço entre os subplots
+plt.tight_layout()
+
+# Mostrando os graficos
+plt.show()
+
+# Plotagem do quinto gráfico
+fig, ax1 = plt.subplots()
+ax1.bar(x, y1, color='blue')
+ax1.set_xlabel('Ano')
+ax1.set_ylabel('Producao de Petróleo (bbl/ano)', color='blue')
+ax1.tick_params(axis='y', labelcolor='blue')
+
+# Criando um eixo-y secundário para o Preço médio da gasolina
+ax2 = ax1.twinx()
+
+# Plotando o preço médio da gasolina
+ax2.plot(x, y2, color='orange', marker='o')
+ax2.set_ylabel('Preço médio da Gasolina por ano (R$/L)', color='orange')
+ax2.tick_params(axis='y', labelcolor='orange')
+ax1.set_xticks(x)
+ax1.set_xticklabels(x1, rotation=90)
+plt.title('Produção de Petróleo x Preço médio da gasolina por ano')
+
+# Mostrando o quinto gráfico
+plt.tight_layout()
+plt.show()
