@@ -27,10 +27,7 @@ for index, row in df.iterrows():
 for ano, valores in precos_gasolina.items():
     precos_gasolina[ano] = round(sum(valores) / len(valores), 3)
 
-print(precos_gasolina)
-
 # Obter informações sobre a produção
-
 caminho_pasta_producao = './Produção_Combustivel'
 
 bases_de_dados = {'terra': {}, 'mar': {}}
@@ -80,21 +77,17 @@ producao_mar_geral = round(producao_mar_geral, 3)
 
 producao_todos_os_anos = producao_terra_geral + producao_mar_geral
 
-print(producao_terra_geral, producao_mar_geral, producao_todos_os_anos)
-
 #Gerar gráficos
 import matplotlib.pyplot as plt
 import numpy as np
 
-x1 = list()
+x1 = list(bases_de_dados['terra'].keys())
 y1 = list()
 y2 = list()
 
-
 # Construindo os dados para o primeiro gráfico (Produção de Petróleo)
-for ano in bases_de_dados['mar'].keys():
-    x1.append(int(ano))
-    y1.append(producao_mar_anos[ano] + producao_terra_anos[ano])
+for ano in x1:
+    y1.append(producao_terra_anos[ano] + producao_mar_anos[ano])
 
 # Construindo os dados para o segundo gráfico (Preço médio da Gasolina)
 for valor in precos_gasolina.values():
