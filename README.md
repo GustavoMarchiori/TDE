@@ -1,6 +1,6 @@
 # TDE
 
-Integrantes  <br> 
+Integrantes:  <br> 
 Caio Oliveira Augusto de Lara Lima  <br> 
 Jonathan Santiago Relva  <br> 
 Gabriel Caldeira Bernardo  <br> 
