@@ -1,6 +1,7 @@
 # TDE
 
-#Caio Oliveira Augusto de Lara Lima
-#Jonathan Santiago Relva
-#Gabriel Caldeira Bernardo
-#Gustavo da Rocha Marchiori
+Integrantes ( <br> )
+Caio Oliveira Augusto de Lara Lima ( <br> )
+Jonathan Santiago Relva ( <br> )
+Gabriel Caldeira Bernardo ( <br> )
+Gustavo da Rocha Marchiori ( <br> )
