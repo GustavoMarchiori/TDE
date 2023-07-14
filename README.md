@@ -6,6 +6,7 @@ Jonathan Santiago Relva  <br>
 Gabriel Caldeira Bernardo  <br> 
 Gustavo da Rocha Marchiori  <br> 
 <br>
+Descrição: <br>
 Este projeto visa verificar a relação entre o volume de extração de petróleo no Brasil <br>
 e o preço do combustível ao longo dos anos. Para investigar essa questão, é proposto comparar <br>
 dois conjuntos de dados: o preço do combustível em determinados períodos e o volume de extração <br>
