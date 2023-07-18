@@ -1,23 +1,31 @@
-# TDE 2023 (Trabalho Discente Efetivo)
+<div align="center">
+  <h1> TDE 2023 </h1>
+  <p>(Trabalho Discente Efetivo)</p>
+</div>
 
-*Integrantes:*  <br> 
+# Integrantes
+- [Caio Augusto de Oliveira Lara Lima](https://github.com/hyskoniho)
+- [Jonathan Santiago Relva](https://github.com/JhowSantiago) 
+- [Gabriel Caldeira Bernardo](https://github.com/1caldeira) 
+- [Gustavo da Rocha Marchiori](https://github.com/GustavoMarchiori) 
 <br>
-Caio Oliveira Augusto de Lara Lima  <br> 
-Jonathan Santiago Relva  <br> 
-Gabriel Caldeira Bernardo  <br> 
-Gustavo da Rocha Marchiori  <br> 
+
+# Descrição
+O objetivo do projeto é estabelecer uma relação estatística entre o volume de extração de
+petróleo no Brasil e o preço de combustível no mercado ao longo dos anos. Para investigar essa
+questão, fora proposto comparar dois conjuntos de dados: o preço e o volume, ambos relativos ao mesmo período.
+A relevância deste trabalho reside em sua contribuição para o entendimento da complexidade e particularidades
+relacionadas ao fornecimento de combustíveis e ao seu impacto na vida das pessoas.
 <br>
-*Descrição:* <br>
-<br>
-Este projeto visa verificar a relação entre o volume de extração de petróleo no Brasil <br>
-e o preço do combustível ao longo dos anos. Para investigar essa questão, é proposto comparar <br>
-dois conjuntos de dados: o preço do combustível em determinados períodos e o volume de extração <br>
-de petróleo nos mesmos períodos. O método utilizado será a análise comparativa dos dados. <br>
-A relevância deste trabalho reside em sua contribuição para o entendimento das complexidades <br>
-e desafios relacionados ao fornecimento de combustíveis e ao seu impacto na vida das pessoas. <br>
-<br>
-*Tecnologias utilizadas:* <br>
-<br>
-Linguagem: Python <br>
-Bibliotecas: Pandas, NumPy, Matplotlib, Plotly, Seaborn
+# Tecnologias
+Linguagem Utilizada: 
+- Python
+<br></br>
+<p>Bibliotecas:</p>
+
+- Pandas
+- NumPy
+- Matplotlib
+- Plotly
+- Seaborn
 
